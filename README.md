@@ -10,7 +10,7 @@ them from one floating window. Plain Neovim — floats, a prompt buffer,
 ╭ Projects ────────────────────────────────────────────╮
 │ › ne                                             3/14 │
 ╰──────────────────────────────────────────────────────╯
-╭ ~/Documents/aurelio  · git repos ────────────────────╮
+╭ ~/projects  · git repos ─────────────────────────────╮
 │ neo-herdr.nvim                               current │  ← open, on its own tint
 │ neo-reviewr.nvim                               tab 2 │
 │ agentengine                                          │
@@ -32,18 +32,23 @@ configurable).
 
 Neovim 0.10+.
 
-## Install (lazy.nvim)
+## Install
+
+[lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
 {
-  dir = "~/Documents/aurelio/context-switch.nvim",
-  name = "context-switch",
+  "jamescalam/context-switch.nvim",
   lazy = false,
   config = function()
-    require("context-switch").setup({ root = "~/Documents/aurelio" })
+    require("context-switch").setup({ root = "~/projects" })
   end,
 }
 ```
+
+Pin a tag with `version = "v0.x"` if you prefer tagged releases to `main`.
+For a local checkout while hacking on it, swap the first line for
+`dir = "~/path/to/context-switch.nvim", name = "context-switch",`.
 
 `<leader>rp` opens the picker; `:ContextSwitch` does too (`:ContextSwitch all`
 starts in all-directories mode).
